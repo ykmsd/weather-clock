@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,70');
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Dosis', sans-serif;
+  color: white;
+}
+
+.panels {
+  display: flex;
+  min-height:100vh;
+}
+
+h2 {
+  font-size: 6rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  transition: flex 0.7s cubic-bezier(.63,-0.51,.52,.42);
+}
+
+.panel.isOpen {
+  flex: 2;
+}
+
+.panel:first-child {
+  background-size: 200% 200%;
+}
+
+.panel:nth-child(2){
+  background-size: 300% 300%;
+}
+
+.panel:last-child {
+  background-size: 200% 200%;
+}
+
+.clear-day {
+  background: linear-gradient(180deg, #ed4264, #ffedbc);
+  background-size: 200% 200%;
+  animation: background-gradient 20s ease infinite;
+}
+
+.clear-night {
+  @extend .clear-day;
+  background: linear-gradient(180deg, #021b79, #0575e6); 
+}
+
+.rain {
+  @extend .clear-day;
+  background: linear-gradient(180deg, #be93c5, #7bc6cc);
+}
+
+.snow {
+  @extend .clear-day;
+  background: linear-gradient(180deg, #c9d6ff, #e2e2e2);
+}
+
+.sleet {
+  @extend .clear-day;
+  background: linear-gradient(180deg, #757f9a, #d7dde8);
+}
+
+.wind {
+  @extend .clear-day;
+  background: linear-gradient(180deg, #6190e8, #a7bfe8);
+}
+
+.fog {
+  @extend .clear-day;
+  background: linear-gradient(180deg, #636fa4, #e8cbc0);
+}
+
+.cloudy {
+  @extend .sleet;
+}
+
+.partly-cloudy-day {
+  @extend .clear-day;
+  background: linear-gradient(180deg, #70e1f5, #ffd194);
+}
+
+.partly-cloudy-night {
+  @extend .clear-day;
+  background: linear-gradient(180deg, #3a7bd5, #3a6073);
+}
+
+.day {
+  font-size: 3rem;
+}
+
+@keyframes background-gradient { 
+  0%{background-position:35% 0%}
+  50%{background-position:66% 100%}
+  100%{background-position:35% 0%}
+}
+
+.wether-container {
+  font-size: 16rem;
+}
+
+.panel.isOpen {
+  .wether-container {
+    .wi {
+      animation: spin .6s linear;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform:rotate(-80deg);
+  }
+  20% {
+    transform:rotate(-70deg);
+  }
+  40% {
+    transform:rotate(-60deg);
+  }
+  60% {
+    transform:rotate(-50deg);
+  }
+  100% {
+    transform:rotate(90deg);
+  }
+}
