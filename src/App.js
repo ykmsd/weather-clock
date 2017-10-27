@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import WeatherClockApp from './components/View';
 
 class App extends Component {
